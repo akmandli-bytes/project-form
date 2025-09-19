@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <header class="form-header">
+                <h1>Project Information</h1>
+                <p>Fill in the details to create or select a project</p>
+            </header>
+            <form id="projectForm">
+                <!-- Project Type -->
+                <div class="form-group">
+                    <label for="projectType" class="form-label">Project Type *</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="projectType" value="Presales" required>
+                            <span class="radio-custom"></span> Presales
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="projectType" value="Post Sales" required>
+                            <span class="radio-custom"></span> Post Sales
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Project Name (Presales only) -->
+                <div class="form-group" id="projectNameGroup" style="display: none;">
+                    <label for="projectName" class="form-label">Project Name *</label>
+                    <input type="text" id="projectName" name="projectName" placeholder="Enter project name">
+                </div>
+
+                <!-- Select Project (Post Sales only) -->
+                <div class="form-group" id="selectProjectGroup" style="display: none;">
+                    <label for="selectedProject" class="form-label">Select Project *</label>
+                    <select id="selectedProject" name="selectedProject">
+                        <option value="">Select a project</option>
+                        <option value="Project A">Project A</option>
+                        <option value="Project B">Project B</option>
+                        <option value="Project C">Project C</option>
+                        <!-- Add more real projects here -->
+                    </select>
+                </div>
+
+                <!-- Dates -->
+                <div class="date-group">
+                    <div class="form-group">
+                        <label for="startDate" class="form-label">Start Date *</label>
+                        <input type="date" id="startDate" name="startDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate" class="form-label">End Date *</label>
+                        <input type="date" id="endDate" name="endDate" required>
+                    </div>
+                </div>
+
+                <!-- UI/UX Estimation -->
+                <div class="form-group">
+                    <label for="uiuxEstimation" class="form-label">Estimation for UI/UX</label>
+                    <select id="uiuxEstimation" name="uiuxEstimation">
+                        <option value="">Select estimation</option>
+                        <option value="1-2 weeks">1-2 weeks</option>
+                        <option value="3-4 weeks">3-4 weeks</option>
+                        <option value="1 month">1 month</option>
+                        <option value="2 months">2 months</option>
+                        <option value="3+ months">3+ months</option>
+                    </select>
+                </div>
+
+                <!-- Drive Link -->
+                <div class="form-group">
+                    <label for="driveLink" class="form-label">Project Drive Folder Link</label>
+                    <input type="url" id="driveLink" name="driveLink" placeholder="https://drive.google.com/...">
+                </div>
+
+                <!-- Deliverables -->
+                <div class="form-group">
+                    <label class="form-label">Deliverables *</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Web"><span class="checkbox-custom"></span> Web</label>
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Web responsive"><span class="checkbox-custom"></span> Web Responsive</label>
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Mobile app"><span class="checkbox-custom"></span> Mobile App</label>
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Brand guideline"><span class="checkbox-custom"></span> Brand Guideline</label>
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Style guide"><span class="checkbox-custom"></span> Style Guide</label>
+                        <label class="checkbox-label"><input type="checkbox" name="deliverables" value="Logo"><span class="checkbox-custom"></span> Logo</label>
+                    </div>
+                </div>
+
+                <!-- Web Tech Stack -->
+                <div class="form-group">
+                    <label class="form-label">Web Tech Stack *</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="JS"><span class="checkbox-custom"></span> JS</label>
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="Magento"><span class="checkbox-custom"></span> Magento</label>
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="Shopify"><span class="checkbox-custom"></span> Shopify</label>
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="Hyva"><span class="checkbox-custom"></span> Hyva</label>
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="Wordpress"><span class="checkbox-custom"></span> Wordpress</label>
+                        <label class="checkbox-label"><input type="checkbox" name="webTech" value="Webflow"><span class="checkbox-custom"></span> Webflow</label>
+                        <label class="checkbox-label"><input type="checkbox" id="webOther" name="webTech" value="Other"><span class="checkbox-custom"></span> Other</label>
+                    </div>
+                    <div id="otherWebTechGroup" style="display: none; margin-top: 1rem;">
+                        <input type="text" id="otherWebTech" name="otherWebTech" placeholder="Specify other tech">
+                    </div>
+                </div>
+
+                <!-- Mobile Tech Stack -->
+                <div class="form-group">
+                    <label class="form-label">Mobile Tech Stack</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="mobileTech" value="None"><span class="radio-custom"></span> None</label>
+                        <label class="radio-label"><input type="radio" name="mobileTech" value="iOS & Android Native"><span class="radio-custom"></span> iOS & Android Native</label>
+                        <label class="radio-label"><input type="radio" name="mobileTech" value="Flutter"><span class="radio-custom"></span> Flutter</label>
+                        <label class="radio-label"><input type="radio" name="mobileTech" value="React Native"><span class="radio-custom"></span> React Native</label>
+                    </div>
+                </div>
+
+                <!-- Reference Links -->
+                <div class="form-group">
+                    <label for="referenceLinks" class="form-label">Reference Links (if any)</label>
+                    <textarea id="referenceLinks" name="referenceLinks" rows="3" placeholder="Enter links (one per line)"></textarea>
+                </div>
+
+                <!-- Design Options -->
+                <div class="form-group">
+                    <label class="form-label">Design Options Required or Committed *</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="designOptions" value="Required" required><span class="radio-custom"></span> Required</label>
+                        <label class="radio-label"><input type="radio" name="designOptions" value="Not Required" required><span class="radio-custom"></span> Not Required</label>
+                    </div>
+                </div>
+
+                <!-- Iterations (if Required) -->
+                <div class="form-group" id="iterationsGroup" style="display: none;">
+                    <label for="iterations" class="form-label">No. of Iterations *</label>
+                    <select id="iterations" name="iterations">
+                        <option value="">Select number</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5+">5+</option>
+                    </select>
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
